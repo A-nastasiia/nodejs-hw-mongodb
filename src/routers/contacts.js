@@ -9,14 +9,14 @@ import {
 
 const router = Router();
 
-router.get('/contacts', getAllContactsController);
+router.get('/', getAllContactsController);
 
-router.get('/contacts/:contactId',getContactByIdController);
+router.get('/:contactId',getContactByIdController);
 
-router.post('/contacts', createContactController);
+router.post('/', createContactController);
 
-router.patch('/contacts/:contactId', updateContactController);
+router.patch('/:contactId', updateContactController);
 
-router.delete('/contacts/:contactId', deleteContactController);
+router.delete('/:contactId', deleteContactController);
 
 export default router;
