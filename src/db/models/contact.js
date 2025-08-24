@@ -1,10 +1,9 @@
-import mongoose from 'mongoose';
-
-const { Schema, model } = mongoose;
+import { model, Schema, Types } from 'mongoose';
+import { CONTACT_TYPES } from '../../constants/contactTypes.js';
 
 export const contactSchema = new Schema(
   {
-     name: {
+    name: {
       type: String,
       required: true,
     },
@@ -21,18 +20,19 @@ export const contactSchema = new Schema(
     },
     contactType: {
       type: String,
-      enum: ['work', 'home', 'personal'],
-      default: 'personal',
+      enum: CONTACT_TYPES,
       required: true,
+      default: 'personal',
     },
     userId: {
-      type: Schema.Types.ObjectId,
-      ref: 'users',
-    }
+      required: true,
+      type: Types.ObjectId,
+    },
   },
   {
     timestamps: true,
+    versionKey: false,
   },
 );
 
-export const Contact = model('Contact', contactSchema);
+export const ContactCollection = model('contacts', contactSchema);
