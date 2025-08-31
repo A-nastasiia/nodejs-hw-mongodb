@@ -5,7 +5,7 @@ import createHttpError from 'http-errors';
 const transport = nodemailer.createTransport({
   host: getEnvVar('SMTP_HOST'),
   port: Number(getEnvVar('SMTP_PORT')),
-  secure: true,
+  secure: false,
   auth: {
     user: getEnvVar('SMTP_USER'),
     pass: getEnvVar('SMTP_PASSWORD'),
@@ -20,7 +20,8 @@ export const sendEmail = async (email, html, subject) => {
       subject,
       html,
     });
-  } catch {
+  } catch (err) {
+    console.error("Email error:", err);
     throw createHttpError(
       500,
       'Failed to send the email, please try again later.',
