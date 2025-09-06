@@ -1,26 +1,23 @@
 {
-  "name": "nodejs-hw-mongodb",
+  "name": "nodejs-basics",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
   "type": "module",
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint src/**/*.js",
     "start": "node ./src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "url": "git+https://github.com/A-nastasiia/nodejs-hw-mongodb"
+    "build": "npm run build-docs",
+    "build-docs": "redocly bundle docs/openapi.yaml --ext json -o docs/swagger.json",
+    "preview-docs": "redocly preview-docs"
   },
   "keywords": [],
-  "author": "A-nastasiia <Anastasiianikolaienko2004@gmail.com>",
+  "author": "Alexander Repeta <a.repeta@goit.global>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/A-nastasiia/nodejs-hw-mongodb/issues"
-  },
-  "homepage": "https://github.com/A-nastasiia/nodejs-hw-mongodb#readme",
   "devDependencies": {
     "@eslint/js": "^9.32.0",
+    "@redocly/cli": "^2.0.8",
     "eslint": "^9.32.0",
     "globals": "^16.3.0",
     "nodemon": "^3.1.10",
